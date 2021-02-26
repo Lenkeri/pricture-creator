@@ -22,16 +22,17 @@ let colorCtxPen = colorType.value;
 let mouseDown = false;
 
 canvasElement.addEventListener('mousedown', function(evt){
+
+
   mouseDown = true;
   ctx.beginPath();
-  console.log(evt);
   let layerX = evt.layerX;
   let layerY = evt.layerY;
   ctx.strokeStyle = colorType.value;
   // ctx.fillRect(layerX, layerY, sizeSetting.value, sizeSetting.value);
   ctx.moveTo(layerX, layerY);
   ctx.lineWidth = sizeSetting.value;
-
+  // document.querySelector('input[type="radio"]:checked')
 });
 
 canvasElement.addEventListener('mousemove', function(evt){
@@ -39,7 +40,6 @@ canvasElement.addEventListener('mousemove', function(evt){
     layerX = evt.layerX;
     layerY = evt.layerY;
     ctx.fillStyle = colorCtxPen;
-    // ctx.fillRect(layerX, layerY, sizeSetting.value, sizeSetting.value);
     ctx.lineTo(layerX, layerY);
     ctx.stroke();
 
@@ -50,4 +50,6 @@ canvasElement.addEventListener('mouseup', function(evt){
   mouseDown = false;
 });
 
-
+//радио кнопки
+const pencil = document.querySelector('#pencil');
+const rubber = document.querySelector('#rubber');
