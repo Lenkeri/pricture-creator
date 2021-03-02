@@ -17,6 +17,10 @@ font-family: 'Raleway', Courier, monospace;
   border: 0;
 }
 
+fieldset {
+  border: 0;
+}
+
 .color input {
 
   border: 0;
@@ -27,7 +31,7 @@ font-family: 'Raleway', Courier, monospace;
   display: grid;
   align-items: center;
 
-grid-template-columns: 100px 230px 100px 100px 100px;
+grid-template-columns: 100px 230px 120px 100px 100px;
 grid-template-rows: 40px;
   margin-left: 10px;
   gap: 10px;
