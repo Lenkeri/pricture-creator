@@ -18,7 +18,6 @@ sizeSetting.oninput = function (){
 };
 const color = document.querySelector('.color');
 
-
 let colorCtxPen = colorType.value;
 let mouseDown = false;
 
@@ -32,32 +31,22 @@ let mouseDown = false;
 //   }
 // })
 
-
-
 //радио кнопки
 const pencil = document.querySelector('#pencil');
 // const pencil = document.querySelector('input[type="radio"]');
 const rubber = document.querySelector('#rubber');
 const toolsElement = document.querySelector('.tools');
-// const fieldset = document.querySelector('.fielset')
 
 toolsElement.addEventListener('change', function(evt){
-  // console.log(evt.target);
   const checked = toolsElement.querySelector('input:checked');
-  // console.log(checked);
-
   switch (checked.value) {
     case 'pencil': initPencil(); break;
     case 'rubber': initRubber(); break;
-  }
-  // if (value = pencil){
-  //   console.log(123123);
-  // }
-  // if (value = rubber) {
-  //   console.log(789789);
-  // }
+  };
 
 });
+
+
 // let mouseDown = false;
 let mouseDownListener = null;
 let mouseMoveListener = null;
@@ -71,12 +60,10 @@ const initPencil = function() {
   removeAllListeners()
   mouseDownListener = function(evt){
     mouseDown = true;
-
     ctx.beginPath();
     let layerX = evt.layerX;
     let layerY = evt.layerY;
     ctx.strokeStyle = colorType.value;
-    // ctx.fillRect(layerX, layerY, sizeSetting.value, sizeSetting.value);
     ctx.moveTo(layerX, layerY);
     ctx.lineWidth = sizeSetting.value;
     // document.querySelector('input[type="radio"]:checked')
@@ -130,9 +117,7 @@ const initRubber = function() {
       layerX = evt.layerX;
       layerY = evt.layerY;
       const stepsX = Math.abs(dx / step);
-      // console.log(stepsX, 'steps')
       const stepsY = Math.abs(dy / step);
-      // console.log(startX, stopX,  'two');
       ctx.clearRect(layerX, layerY, sizeSetting.value, sizeSetting.value);
       const steps = Math.max(stepsX, stepsY);
       const stepX = dx / steps;
@@ -160,5 +145,33 @@ resetCanvas.addEventListener('click', function(){
   ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 });
 
+const saveCanvas = document.querySelector('.save');
+saveCanvas.addEventListener('click', function(){
+  canvasElement.download = 'img.png'
+  console.log(1)
+});
 
+const checkeded = toolsElement.querySelector('input:checked');
+if(checkeded.value == 'pencil'){
+  initPencil()
+}
+
+document.addEventListener('keydown', function(evt){
+  if(evt.code == "KeyB"){
+    checkeded.value = 'pencil';
+    pencil.setAttribute('checked', 'true');
+      initPencil()
+      pencil.setAttribute('checked', 'true');
+      rubber.removeAttribute('checked');
+
+
+  };
+  if(evt.code == "KeyE"){
+    checkeded.value = 'rubber';
+      initRubber()
+      rubber.setAttribute('checked', 'true');
+      pencil.removeAttribute('checked');
+
+  }
+});
 
