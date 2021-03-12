@@ -31,11 +31,10 @@ fieldset {
   display: grid;
   align-items: center;
 
-  grid-template-columns: 100px 230px 120px 100px 100px;
+  grid-template-columns: 100px 230px 120px 100px 100px 100px;
   grid-template-rows: 64px;
   margin-left: 10px;
   gap: 10px;
-
 }
 
 .visually-hidden {

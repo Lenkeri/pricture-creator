@@ -175,3 +175,18 @@ document.addEventListener('keydown', function(evt){
   }
 });
 
+const saveButton = document.querySelector('.save');
+saveButton.addEventListener('click', (evt) => {
+  evt.preventDefault();
+
+  canvasElement.toBlob((blob) => {
+    const link = document.createElement('a');
+    link.textContent = 'Download';
+    link.download = 'image.png';
+    link.href = window.URL.createObjectURL(blob);
+    link.addEventListener('click', () => {
+      link.remove();
+    })
+    toolbar.appendChild(link);
+  }, 'image/png');
+})
