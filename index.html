@@ -12,11 +12,11 @@
 
   <div class="toolbar">
     <div class="color">
-      Color: <input class="color-type" type="color" value="#0ff00f">
+      Цвет: <input class="color-type" type="color" value="#0ff00f">
     </div>
 
     <div class="size">
-      Size: <output class="size-value">3</output>
+      Размер: <output class="size-value">3</output>
       <input class="size-setting" type="range" min="1" max="50" value="3"> 50
     </div>
 
@@ -24,12 +24,15 @@
 
     <fieldset class="tools">
       <input type="radio" id="pencil" name="draw" value="pencil" class="visually-hidden tool" checked>
-      <label for="pencil" class="tool-label tool-label--pencil" title="Paint Brush"></label>
+      <label for="pencil" class="tool-label tool-label--pencil" title="Кисть"></label>
       <input type="radio" id="rubber" name="draw" value="rubber" class="visually-hidden tool" >
-      <label for="rubber" class="tool-label tool-label--rubber" title="Eraser"></label>
+      <label for="rubber" class="tool-label tool-label--rubber" title="Ластик"></label>
     </fieldset>
-    <button class="reset-canvas">Reset</button>
-    <button class="save">Save</button>
+    <fieldset class="buttons">
+      <button class="button button--reset reset-canvas" title="Очистить"></button>
+      <button class="button button--save" title="Сохранить"></button>
+    </fieldset>
+
 
   </div>
 

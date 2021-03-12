@@ -145,12 +145,6 @@ resetCanvas.addEventListener('click', function(){
   ctx.clearRect(0, 0, canvasElement.width, canvasElement.height);
 });
 
-const saveCanvas = document.querySelector('.save');
-saveCanvas.addEventListener('click', function(){
-  canvasElement.download = 'img.png'
-  console.log(1)
-});
-
 const checkeded = toolsElement.querySelector('input:checked');
 if(checkeded.value == 'pencil'){
   initPencil()
@@ -175,18 +169,22 @@ document.addEventListener('keydown', function(evt){
   }
 });
 
-const saveButton = document.querySelector('.save');
+const saveButton = document.querySelector('.button--save');
 saveButton.addEventListener('click', (evt) => {
   evt.preventDefault();
-
+  const element = document.querySelector('.link-download');
+  if (element) {
+    element.remove();
+  }
   canvasElement.toBlob((blob) => {
     const link = document.createElement('a');
-    link.textContent = 'Download';
+    link.classList.add('link-download');
+    link.textContent = 'Загрузить';
     link.download = 'image.png';
     link.href = window.URL.createObjectURL(blob);
     link.addEventListener('click', () => {
       link.remove();
-    })
+    });
     toolbar.appendChild(link);
   }, 'image/png');
-})
+});
