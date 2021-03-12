@@ -31,12 +31,11 @@ fieldset {
   display: grid;
   align-items: center;
 
-grid-template-columns: 100px 230px 120px 100px 100px;
-grid-template-rows: 40px;
+  grid-template-columns: 100px 230px 120px 100px 100px 100px;
+  grid-template-rows: 64px;
   margin-left: 10px;
   gap: 10px;
-
-};
+}
 
 .visually-hidden {
   position: absolute;
@@ -44,5 +43,27 @@ grid-template-rows: 40px;
   width: 1px;
   height: 1px;
   margin: -1px;
-  …
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+}
+.tool:checked + label{
+  box-shadow: 0 0 10px red;
+}
+.tool-label {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 8px;
+  background-size: cover;
+}
+
+.tool-label--pencil {
+  background-image: url("./img/paint-brush.svg");
+}
+.tool-label--rubber {
+  background-image: url("./img/eraser.svg");
 }
