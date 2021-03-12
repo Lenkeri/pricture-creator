@@ -22,14 +22,12 @@
 
 
 
-    <div class="input-to-draw">
-      <fieldset class="tools">
-      <input type="radio" id="pencil" name="draw" value="pencil" class="visually-hidden" checked="true">
-      <label for="pencil">Pencil</label><br>
-      <input type="radio" id="rubber" name="draw" value="rubber" class="visually-hidden" >
-      <label for="rubber">Rubber</label>
-      </fieldset>
-    </div>
+    <fieldset class="tools">
+      <input type="radio" id="pencil" name="draw" value="pencil" class="visually-hidden tool" checked>
+      <label for="pencil" class="tool-label tool-label--pencil"></label>
+      <input type="radio" id="rubber" name="draw" value="rubber" class="visually-hidden tool" >
+      <label for="rubber" class="tool-label tool-label--rubber"></label>
+    </fieldset>
     <button class="reset-canvas">Reset</button>
     <button class="save">Save</button>
 
